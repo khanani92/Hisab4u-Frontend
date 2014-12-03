@@ -1,0 +1,27 @@
+<div class="col-md-offset-3 col-md-6  myForm">
+    <div class="col-md-12">
+        <h1 class="text-primary">Add Account</h1>
+    </div>
+
+    <form class="form-horizontal" action="" name="NewAccountForm" >
+
+        <div class="control-group col-md-12">
+            <label class="control-label labelColor col-md-4">Account Name :</label>
+            <div class="controls col-md-8">
+                <input type="text" name="AccName" required autofocus="true" ng-model="accountData.accountName" class="txtBox"/>
+            </div>
+        </div>
+
+        <div class="control-group col-md-12">
+            <label class="control-label labelColor col-md-4">Purpose :</label>
+            <div class="controls col-md-8">
+                <input type="text" name="purpose" class="txtBox" required ng-model="accountData.purpose"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <button class="btn btn-primary pull-left col-md-offset-5 btnMargin" type="button" ng-click="Add_Call()" ng-disabled="NewAccountForm.$invalid">Add Account</button>
+        </div>
+    </form>
+</div>
+

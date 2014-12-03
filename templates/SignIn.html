@@ -1,0 +1,27 @@
+<div class="col-md-offset-3 col-md-6  myForm">
+    <form class="form-horizontal" action="" name="loginForm" >
+
+        <div class="control-group col-md-12" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+            <label class="control-label labelColor col-md-4">Email :</label>
+            <div class="controls col-md-8">
+                <input type="email" name="email" required ng-model="userData.email" class="txtBox"/>
+                <span ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="validationWarningText">Enter a valid email.</span>
+            </div>
+        </div>
+
+        <div class="control-group col-md-12">
+            <label class="control-label labelColor col-md-4">Password :</label>
+            <div class="controls col-md-8">
+                <input type="password" class="txtBox" required ng-model="userData.pass"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <button class="btn btn-primary pull-left col-md-offset-5  btnMargin" type="button" ng-click="SignInForm()" ng-disabled="loginForm.$invalid">Sign In</button>
+            <span class="pull-left" style="margin: 4% 0 0 2%"> or
+                <a href="#signUp" style="color: #000000">&nbsp;sign up</a>
+            </span>
+        </div>
+    </form>
+</div>
+

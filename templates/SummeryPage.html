@@ -1,0 +1,52 @@
+<div class="col-md-offset-2 col-md-8  myFormDiv">
+    <div class="col-md-12 text-center">
+            <a href="#newAccount">
+                <i class="glyphicon glyphicon-plus-sign fa-inverse" style="font-size: 400%"></i>
+            </a>
+    </div>
+
+    <!--<nav role="navigation" class="col-md-12" style="margin-top: 1%">
+        <ul class="list-group" style="overflow: hidden;height:197px;overflow-y: scroll">
+            <li class="list-group-item listColor text-left">Entry 1</li>
+            <li class="list-group-item listColor text-left">Entry 2</li>
+            <li class="list-group-item listColor text-left">Entry 3</li>
+            <li class="list-group-item listColor text-left">Entry 4</li>
+            <li class="list-group-item listColor text-left">Entry 5</li>
+            <li class="list-group-item listColor text-left">Entry 6</li>
+            <li class="list-group-item listColor text-left">Entry 7</li>
+            <li class="list-group-item listColor text-left">Entry 8</li>
+            <li class="list-group-item listColor text-left">Entry 9</li>
+            <li class="list-group-item listColor text-left">Entry 10</li>
+        </ul>
+    </nav>-->
+
+    <div class="col-md-12">
+        <table class="dashBoard table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Account Name</th>
+                    <th>Purpose</th>
+                    <th>Last Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="AccDetail in AccDetails">
+                    <td>{{$index}}</td>
+                    <td>{{AccDetail.AccountName}}</td>
+                    <td>{{AccDetail.Purpose}}</td>
+                    <td>{{AccDetail.LastUpdate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6 graph">
+        Graph here...
+    </div>
+
+    <div class="col-md-6 converter">
+        Conversion Here...
+    </div>
+</div>
+

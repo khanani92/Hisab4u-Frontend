@@ -1,0 +1,43 @@
+<div class="col-md-offset-3 col-md-6  myForm">
+    <form name= "userForm" novalidate class="form-horizontal">
+
+        <div class="control-group col-md-12" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label class="control-label labelColor col-md-4">Username :</label>
+            <div class="controls col-md-8">
+                <input type="text" name="username" class="txtBox" ng-model="userData.username" ng-minlength="3" ng-maxlength="8" required autofocus="true"/>
+                <span ng-show="userForm.username.$error.minlength" class="validationWarningText">Username is too short.</span>
+                <span ng-show="userForm.username.$error.maxlength" class="validationWarningText">Username is too long.</span>
+            </div>
+        </div>
+
+        <div class="control-group col-md-12" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label class="control-label labelColor col-md-4">Email :</label>
+            <div class="controls col-md-8">
+                <input type="email" required name="email" ng-model="userData.email" class="txtBox"/>
+                <span ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="validationWarningText">Enter a valid email.</span>
+            </div>
+        </div>
+
+        <div class="control-group col-md-12">
+            <label class="control-label labelColor col-md-4">Password :</label>
+            <div class="controls col-md-8">
+                <input type="password" required name="password" ng-model="userData.pass" class="txtBox"/>
+            </div>
+        </div>
+
+        <div class="control-group col-md-12">
+            <label class="control-label labelColor col-md-4">Confirm Password :</label>
+            <div class="controls col-md-8">
+                <input type="password" required name="confirmPassword" ng-model="userData.passwordConfirm" data-match="userData.pass" class="txtBox"/>
+                <!--<p class="help-block" data-ng-show="userForm.confirmPassword.$error.required">This is required.</p>-->
+                <!--<p class="help-block" data-ng-show="userForm.confirmPassword.$error.match">Passwords do not match.</p>-->
+                <span data-ng-show="userForm.confirmPassword.$error.match" class="validationWarningText">Password does not match</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <button class="btn btn-primary pull-left col-md-offset-5  btnMargin" type="button"  ng-click="submitForm()"  ng-disabled="userForm.$invalid">Register Now</button>
+        </div>
+    </form>
+</div>
+
