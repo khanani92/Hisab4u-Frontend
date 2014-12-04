@@ -1,6 +1,6 @@
 AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog){
 
-    var Url = $location.$$path;
+    /*var Url = $location.$$path;
     var userIDTo = Url.substr(12,Url.length);
     console.log(userIDTo)
 $scope.is_data = false
@@ -24,6 +24,6 @@ $scope.is_data = false
             templateUrl:'templates/EditEntry.html',
             className: 'ngdialog-theme-default ngdialog-theme-custom'
         });
-    }
+    }*/
 
 });
