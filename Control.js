@@ -26,7 +26,7 @@ var AccMgt = angular.module('AccMgt',['ngRoute','ngDialog']);
                 templateUrl:'templates/NewAccount.html',
                 controller:'newAccount'
             })
-            .when('/allEntries', {
+            .when('/allEntries/:id', {
                 templateUrl:'templates/AllEntry.html',
                 controller:'allEntries'
             })

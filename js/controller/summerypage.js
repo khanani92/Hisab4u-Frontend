@@ -1,5 +1,5 @@
 AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
-    var userID = ({userID:JSON.parse(sessionStorage.userData)._id})
+    var userID = ({userID:JSON.parse(sessionStorage.userData)._id});
     $scope.AccDetails = [];
 
 /*    for(var i=0;i<4;i++){
@@ -22,5 +22,16 @@ AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
         )//Error
 
 
+    $scope.go = function (path){
+        $location.path(path);
+    };
+    //$scope.go('/prayer/'+payerID);
+
+
+    $scope.accPage = function(id,accName){
+        $scope.go('/allEntries/'+id);
+        if(!$scope.$$phase) $scope.$apply();
+        console.log(id +"  "+ accName+ "   " + " in accPage func")
+    }
 
 });

@@ -5,7 +5,7 @@
             </a>
     </div>
 
-    <!--<nav role="navigation" class="col-md-12" style="margin-top: 1%">.......
+    <!--<nav role="navigation" class="col-md-12" style="margin-top: 1%">
         <ul class="list-group" style="overflow: hidden;height:197px;overflow-y: scroll">
             <li class="list-group-item listColor text-left">Entry 1</li>
             <li class="list-group-item listColor text-left">Entry 2</li>
@@ -21,7 +21,7 @@
     </nav>-->
 
     <div class="col-md-12">
-        <table class="dashBoard table table-bordered">
+        <table class="dashBoard table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>#</th>
@@ -31,8 +31,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="AccDetail in AccDetails">
-                    <td>{{$index}}</td>
+                <tr ng-repeat="AccDetail in AccDetails" ng-click="accPage(AccDetail._id,AccDetail.accountName)">
+                    <td >{{$index}}</td>
                     <td>{{AccDetail.accountName}}</td>
                     <td>{{AccDetail.purpose}}</td>
                     <td>{{AccDetail.createdDate}}</td>
