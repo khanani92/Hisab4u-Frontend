@@ -1,28 +1,28 @@
-<div class="pop" ng-controller="addEntry">
+<div class="pop">
     <h2 class="text-primary popField">Add Entry</h2>
     <div class="popField">
-        <label>AMOUNT :</label>
-        <input type="text" autofocus="true" style="margin-left: 6%"/>
-    </div>
-    <div class="popField">
-        <label>PURPOSE :</label>
-        <input type="text" style="margin-left: 4%"/>
-    </div>
-    <div class="popField">
-        <label>TO/FROM :</label>
-        <input type="text" style="margin-left: 5%"/>
-    </div>
-    <div class="popField">
-        <label>DATE :</label>
-        <input type="text" style="margin-left: 12%"/>
-    </div>
+            <label>DATE :</label>
+            <input type="date" ng-model="entriesData.newDate" style="margin-left: 12%"/>
+        </div>
+        <div class="popField">
+            <label>TO/FROM :</label>
+            <input type="text" ng-model="entriesData.newTF" style="margin-left: 5%"/>
+        </div>
+        <div class="popField">
+            <label>PURPOSE :</label>
+            <input type="text" ng-model="entriesData.newPurpose" style="margin-left: 4%"/>
+        </div>
+        <div class="popField">
+            <label>AMOUNT :</label>
+            <input type="text" ng-model="entriesData.newAmount" style="margin-left: 6%"/>
+        </div>
     <div class="popField">
         <label>FORM :</label>
                 <span style="margin-left: 12%">
-                    <input type="radio" name="amount"/> ATM
-                    <input type="radio" name="amount"/> Cheque
-                    <input type="radio" name="amount"/> Cash
+                    <input type="radio" ng-model="entriesData.form" value="ATM"/> ATM
+                    <input type="radio" ng-model="entriesData.form" value="Cheque"/> Cheque
+                    <input type="radio" ng-model="entriesData.form" checked value="Cash"/> Cash
                 </span>
     </div>
-    <button class="pop btn btn-primary" style="width: 100%" ng-click="close()">Done</button>
+    <button class="pop btn btn-primary" style="width: 100%" ng-click="addEntry()">Done</button>
 </div>

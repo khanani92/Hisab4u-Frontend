@@ -20,11 +20,11 @@ AccMgt.controller('signIn',function($rootScope,$scope,$http,$location){
 
                 sessionStorage.setItem('userData', JSON.stringify(res.data));
 
-                var geT = JSON.parse(sessionStorage.getItem('userData'));
+                //var geT = JSON.parse(sessionStorage.getItem('userData'));
                 $scope.go('/dashBoard');
                 if(!$scope.$$phase) $scope.$apply();
                 console.log("Sign IN... Session Storage Checking");
-                console.log(geT);
+                //console.log(geT);
             }).error(
             function(){ console.log("Error");}
         )//Error

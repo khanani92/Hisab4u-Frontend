@@ -1,5 +1,5 @@
 AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$http){
-
+    var userData =  JSON.parse(sessionStorage.getItem('userData'))
     var Url = $location.$$path;
     var accountID = Url.substr(12,Url.length);
     console.log(accountID);
@@ -27,7 +27,8 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
     $scope.openPOPup = function(){
         ngDialog.open({
             templateUrl:'templates/AddEntry.html',
-            className: 'ngdialog-theme-default ngdialog-theme-custom'
+            className: 'ngdialog-theme-default ngdialog-theme-custom',
+            scope: $scope
         });
     }
 
@@ -36,6 +37,31 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
             templateUrl:'templates/EditEntry.html',
             className: 'ngdialog-theme-default ngdialog-theme-custom'
         });
+    }
+
+
+
+    $scope.entriesData = {accountID:accountID, userID:userData._id,newDate:'',newTF : '',newPurpose:'',newAmount:'',form:''}
+
+    $scope.addEntry = function(){
+
+        alert($scope.entriesData);
+
+        $http({
+            url:"http://localhost:3000/entry/new",
+            data: {entryData : $scope.entriesData},
+            method:"POST"
+        }).success(function(res,textStatus){
+            console.log("Success ");
+            $scope.all_Entries.push  = res;
+        }).error(
+            function(){ console.log("Error");}
+        )//Error
+
+
+
+        ngDialog.close();
+
     }
 
 });
