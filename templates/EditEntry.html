@@ -1,29 +1,30 @@
-<div class="pop" ng-controller="editEntry">
+<div class="pop" >
     <h2 class="text-primary popField">Update Entry</h2>
     <div class="popField">
         <label>DATE :</label>
-        <input type="date" style="margin-left: 12%"/>
+        <input type="date" ng-model="editData.newDate" style="margin-left: 12%"/>
     </div>
     <div class="popField">
         <label>TO/FROM :</label>
-        <input type="text" style="margin-left: 5%"/>
+
+        <input type="text" ng-model="editData.newTF"  style="margin-left: 5%"/>
     </div>
     <div class="popField">
         <label>PURPOSE :</label>
-        <input type="text" style="margin-left: 4%"/>
+        <input type="text" ng-model="editData.newPurpose" style="margin-left: 4%"/>
     </div>
     <div class="popField">
         <label>AMOUNT :</label>
-        <input type="text" style="margin-left: 6%"/>
+        <input type="text" ng-model="editData.newAmount" style="margin-left: 6%"/>
     </div>
     <div class="popField">
         <label>FORM :</label>
                 <span style="margin-left: 12%">
-                    <input type="radio" name="amount"/> ATM
-                    <input type="radio" name="amount"/> Cheque
-                    <input type="radio" name="amount"/> Cash
+                    <input type="radio" ng-model="editData.form" value="ATM"/> ATM
+                    <input type="radio" ng-model="editData.form" value="Cheque"/> Cheque
+                    <input type="radio" ng-model="editData.form" checked value="Cash"/> Cash
                 </span>
     </div>
 
-    <button class="pop btn btn-primary" style="width: 100%" ng-click="close()">Done</button>
+    <button class="pop btn btn-primary" style="width: 100%" ng-click="editEntry()">Done</button>
 </div>
