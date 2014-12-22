@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="AccDetail in AccDetails" ng-click="accPage(AccDetail._id,AccDetail.accountName)">
+                <tr ng-repeat="AccDetail in AccDetails" ng-click="accPage(AccDetail._id,AccDetail.accountName)" style="cursor: pointer">
                     <td >{{$index}}</td>
                     <td>{{AccDetail.accountName}}</td>
                     <td>{{AccDetail.purpose}}</td>

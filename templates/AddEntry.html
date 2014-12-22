@@ -1,28 +1,34 @@
 <div class="pop">
-    <h2 class="text-primary popField">Add Entry</h2>
-    <div class="popField">
-            <label>DATE :</label>
-            <input type="date" ng-model="entriesData.newDate" style="margin-left: 12%"/>
+    <br/>
+    <h2 class="text-primary">Add Entry</h2>
+    <div class="form-control form-group form-inline" ng-class="{hasError: hasDate}" style="height: 0%">
+            <label class="control-label">DATE :</label>
+            <input type="date" class="form-control" ng-model="entriesData.newDate" style="margin-left: 22%; "/>
         </div>
-        <div class="popField">
-            <label ng-class="{hasWarning: hasDate}">TO/FROM :</label>
-            <input type="text" ng-model="entriesData.newTF" style="margin-left: 5%"/>
+
+        <div class="form-control form-group form-inline" ng-class="{hasError: hasTF}" style="height: 0%">
+            <label class="control-label">TO/FROM :</label>
+            <input type="text" class="form-control" ng-model="entriesData.newTF" style="margin-left: 15%"/>
         </div>
-        <div class="popField">
-            <label>PURPOSE :</label>
-            <input type="text" ng-model="entriesData.newPurpose" style="margin-left: 4%"/>
+
+    <div class="form-control form-group form-inline" ng-class="{hasError: hasPurpose}" style="height: 0%">
+            <label class="control-label">PURPOSE :</label>
+            <input type="text" class="form-control" ng-model="entriesData.newPurpose" style="margin-left: 14%"/>
         </div>
-        <div class="popField">
-            <label>AMOUNT :</label>
-            <input type="text" ng-model="entriesData.newAmount" style="margin-left: 6%"/>
+
+    <div class="form-control form-group form-inline" ng-class="{hasError: hasAmount}" style="height: 0%">
+            <label class="control-label">AMOUNT :</label>
+            <input type="text" class="form-control" ng-model="entriesData.newAmount" style="margin-left: 16%"/>
         </div>
-    <div class="popField">
-        <label>FORM :</label>
-                <span style="margin-left: 12%">
+
+    <div class="form-control form-group form-inline" ng-class="{hasError: hasAmount}" style="height: 0%">
+        <label class="control-label">AMOUNT :</label>
+                <span style="margin-left: 16%" class="form-control">
                     <input type="radio" ng-model="entriesData.form" value="ATM"/> ATM
                     <input type="radio" ng-model="entriesData.form" value="Cheque"/> Cheque
-                    <input type="radio" ng-model="entriesData.form" checked value="Cash"/> Cash
+                    <input type="radio" ng-model="entriesData.form" value="Cash" checked> Cash</input>
                 </span>
     </div>
+
     <button class="pop btn btn-primary" style="width: 100%" ng-click="addEntry()">Done</button>
 </div>

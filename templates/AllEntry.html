@@ -5,7 +5,7 @@
         </div>
     </div>
 
-    <table class="table myForm table-bordered" >
+    <table class="table myForm2 table-bordered table-hover" >
         <thead>
             <tr style="color: #000000;font-weight: bolder">
                 <th>S. No</th>
@@ -26,8 +26,11 @@
                 <td>{{entry.amount}}</td>
                 <td>{{entry.form}}</td>
                 <td>
-                    <span><span ng-click="editEntryPop(entry._id, $index)" style="cursor: pointer; color: blue">Edit</span></span>
-                    <span>Delete</span>
+                    <div><i class="fa fa-pencil-square-o"></i>
+                        <span ng-click="editEntryPop(entry._id, $index)" style="cursor: pointer; color: blue">Edit</span>
+                        <span>|</span>
+                    <i class="fa fa-trash-o"></i>
+                        <span ng-click="delEntry(entry._id, $index)" style="cursor: pointer; color: blue">Delete</span></div>
                 </td>
             </tr>
         </tbody>

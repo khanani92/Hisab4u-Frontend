@@ -53,27 +53,32 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
     //add entry code
 
     $scope.entriesData = {accountID:accountID, userID:userData._id,newDate:'',newTF : '',newPurpose:'',newAmount:'',form:''};
-/*    hasDate = true;
-    var hasTF = true;
-    var hasPurpose = true;
-    var hasAmount = true;
-    */
+    $scope.hasDate = false;
+    $scope.hasTF = false;
+    $scope.hasPurpose = false;
+    $scope.hasAmount = false;
 
     $scope.addEntry = function() {
-/*        if ($scope.entriesData.newDate == '') {
-            hasDate = false;
-        }
-        else if ($scope.entriesData.newTF == '') {
-            hasTF = false
-        }
-        else if ($scope.entriesData.newPurpose == '') {
-            hasPurpose = false
-        }
-        else if ($scope.entriesData.newAmount == '') {
-            hasAmount = false
-        }
+        $scope.hasDate = false;
+        $scope.hasTF = false;
+        $scope.hasPurpose = false;
+        $scope.hasAmount = false;
+             if ($scope.entriesData.newDate == '') {
+                 $scope.hasDate = true
+             }
+             else
+                if ($scope.entriesData.newTF == '') {
+                 $scope.hasTF = true
+                }
+                else
+                    if ($scope.entriesData.newPurpose == '') {
+                    $scope.hasPurpose = true
+                    }
+                    else
+                        if ($scope.entriesData.newAmount == '') {
+                        $scope.hasAmount = true
+                        }
         else {
-        */
 
             var all_EntriesTemp = $scope.all_Entries;
 
@@ -90,13 +95,13 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
                 function () {
                     console.log("Error");
                 }
-            )
+            );
 
             ngDialog.close();
         }
-/*
+
     }
-    */
+
 
 
     //edit entry code
@@ -105,7 +110,24 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
     $scope.editData = {entryID:'',newDate:'',newTF : '',newPurpose:'',newAmount:'',form:''};
 
     $scope.editEntry = function(){
-        ngDialog.close();
+        $scope.hasDate = false;
+        $scope.hasTF = false;
+        $scope.hasPurpose = false;
+        $scope.hasAmount = false;
+        if ($scope.editData.newDate == '') {
+            $scope.hasDate = true;
+        }
+        else if ($scope.editData.newTF == '') {
+            $scope.hasTF = true
+        }
+        else if ($scope.editData.newPurpose == '') {
+            $scope.hasPurpose = true
+        }
+        else if ($scope.editData.newAmount == '') {
+            $scope.hasAmount = true
+        }
+        else {
+
         console.log($scope.editData);
         console.log($scope.all_Entries[arrayLocation].entryDate);
         var all_EntriesTemp = $scope.all_Entries;
@@ -122,15 +144,32 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
         }).error(
             function(){ console.log("Error");}
         )
+            ngDialog.close();
+        }
 
 
 
     }
 
-/*    $scope.delEntry = function(){
-        $scope.all_Entries.slice($scope.location);
+    $scope.delEntry = function(id,loca){
+    console.log(id);
+    console.log(loca + "location on array");
+        var all_EntriesTemp = $scope.all_Entries;
+        $http({
+            url:"http://localhost:3000/entry/delete",
+            data: {entryData : $scope.entriesData},
+            method:"POST"
+        }).success(function(res,textStatus){
+            console.log("Success data edited");
+            all_EntriesTemp = res.data;
+            $scope.all_Entries = all_EntriesTemp;
+
+        }).error(
+            function(){ console.log("Error");}
+        )
+
 
         ngDialog.close();
     }
- */
+
 });
