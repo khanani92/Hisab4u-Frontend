@@ -11,9 +11,13 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
 
 
     $scope.Add_Call  = function(){
-        //var date = new Date();
+        var date = new Date();
+   var day= date.getDate();
+   var month= date.getMonth()+1;
+   var year= date.getFullYear();
 
-        $scope.accountData.createdDate = new Date();
+   var time= date.getHours()+'-'+date.getMinutes()
+        $scope.accountData.createdDate = [time,day,month,year];
 
         $scope.accountData.userID = JSON.parse(sessionStorage.getItem('userData'))
         //var currentDate = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+" "+date.getFullYear()+'/'+(date.getMonth()+1)+'/'+date.getDate();
