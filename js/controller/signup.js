@@ -1,20 +1,26 @@
 AccMgt.controller('signUp',function($rootScope,$scope,$http,$location, ngDialog){
     // function to submit the form after all validation has occurred
-    $scope.userData={
-        username: '',
-        email: '',
-        pass: ''
-    };
+    var userData =  JSON.parse(sessionStorage.getItem('userData'));
+    if(userData && (Object.keys(userData).length > 0)){
+        $location.path('/')
+        if(!$scope.$$phase) $scope.$apply();
 
-    var data = {userData: $scope.userData};
+}else{
+        $scope.userData={
+            username: '',
+            email: '',
+            pass: ''
+        };
 
-    $scope.submitForm = function() {
-        console.log($scope.userData);
-        $http({
-            url:"http://localhost:3000/users/register",
-            data: data, //{username: data.username, email: data.email, pass: data.pass},//$scope.userData,
-            method:"POST"
-        }).success(function(res,textStatus){
+        var data = {userData: $scope.userData};
+
+        $scope.submitForm = function() {
+            console.log($scope.userData);
+            $http({
+                url:"http://localhost:3000/users/register",
+                data: data, //{username: data.username, email: data.email, pass: data.pass},//$scope.userData,
+                method:"POST"
+            }).success(function(res,textStatus){
                 if(res.msg != 'email found'){
                     location.href = 'http://localhost:63342/grayscale/index.html#/signIn';
                 }
@@ -26,16 +32,20 @@ AccMgt.controller('signUp',function($rootScope,$scope,$http,$location, ngDialog)
                 }
                 console.log(res);
             }).error(
-            function(){ alert("Error");}
-        )//Error
-        //console.log(data.email);
+                function(){ alert("Error");}
+            )//Error
+            //console.log(data.email);
 
 
-        // check to make sure the form is completely valid
+            // check to make sure the form is completely valid
 //        if ($scope.userForm.$valid) {
 //            alert('Validate Form !');
 //        }
-    };
+        };
+
+
+    }
+
 
 
   /*  $scope.go = function (path){

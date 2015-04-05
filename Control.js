@@ -54,7 +54,7 @@ var AccMgt = angular.module('AccMgt',['ngRoute','ngDialog']);
     });
 
 
-    AccMgt.controller('navController', function($scope){
+    /*AccMgt.controller('navController', function($scope){
         // function to submit the form after all validation has occurred
 
-    })
+    })*/

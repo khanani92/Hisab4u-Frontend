@@ -4,7 +4,7 @@
         <div class="control-group col-md-12" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
             <label class="control-label labelColor col-md-4">Username :</label>
             <div class="controls col-md-8">
-                <input type="text" name="username" class="txtBox" ng-model="userData.username" ng-minlength="3" ng-maxlength="8" required autofocus="true"/>
+                <input type="text" name="username" class="txtBox" ng-model="userData.username" ng-minlength="3" ng-maxlength="15" required autofocus="true"/>
                 <span ng-show="userForm.username.$error.minlength" class="validationWarningText">Username is too short.</span>
                 <span ng-show="userForm.username.$error.maxlength" class="validationWarningText">Username is too long.</span>
             </div>

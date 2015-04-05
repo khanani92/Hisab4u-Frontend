@@ -1,18 +1,11 @@
 AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
-    var userID = ({userID:JSON.parse(sessionStorage.userData)._id})
+    var userData =  JSON.parse(sessionStorage.getItem('userData'));
     $scope.AccDetails = [];
 
-/*    for(var i=0;i<4;i++){
-        $scope.AccDetails.push({
-            AccountName : "First "+i,
-            Purpose : "Banking",
-            LastUpdate : new Date()
-        })
-    }*/
-
+    if(userData && (Object.keys(userData).length > 0)){
     $http({
             url:"http://localhost:3000/account/getUserAccounts",
-            data: userID,  //{email: data.email, pass: data.pass},//$scope.userData,
+            data: userData._id,  //{email: data.email, pass: data.pass},//$scope.userData,
             method:"POST"
         }).success(function(res,textStatus){
             console.log("Success ");
@@ -20,7 +13,10 @@ AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
         }).error(
             function(){ console.log("Error");}
         )//Error
-
+    }else{
+        $location.path('/')
+        if(!$scope.$$phase) $scope.$apply();
+    }
 
 
 });

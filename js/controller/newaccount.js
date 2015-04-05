@@ -1,5 +1,6 @@
 AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
-
+    var userData =  JSON.parse(sessionStorage.getItem('userData'));
+    if(userData && (Object.keys(userData).length > 0)){
     $scope.accountData = {
         userID: '',
         accountName: '',
@@ -33,6 +34,10 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
         )//Error
         console.log(data.accountData.createdDate);
     }
+}else{
+    $location.path('/')
+    if(!$scope.$$phase) $scope.$apply();
+}
 
 
 });
