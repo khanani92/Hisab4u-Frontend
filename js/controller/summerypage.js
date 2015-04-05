@@ -13,6 +13,12 @@ AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
         }).error(
             function(){ console.log("Error");}
         )//Error
+
+        $scope.showAccountDet =function(accId){
+            $location.path('/allEntries/'+accId)
+            if(!$scope.$$phase) $scope.$apply();
+        }
+
     }else{
         $location.path('/')
         if(!$scope.$$phase) $scope.$apply();

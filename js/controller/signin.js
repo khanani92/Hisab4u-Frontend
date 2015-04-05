@@ -1,6 +1,6 @@
 AccMgt.controller('signIn',function($rootScope,$scope,$http,$location){
     // function to submit the form after all validation has occurred
-
+    var userData =  JSON.parse(sessionStorage.getItem('userData'));
     if(userData && (Object.keys(userData).length > 0)){
         $location.path('/')
         if(!$scope.$$phase) $scope.$apply();
@@ -10,9 +10,9 @@ AccMgt.controller('signIn',function($rootScope,$scope,$http,$location){
             email: '',
             pass: ''
         };
-
+        $scope.err = ''
         var data = {userData: $scope.userData};
-        console.log(data);
+
 
         $scope.SignInForm = function () {
             $http({
@@ -23,15 +23,11 @@ AccMgt.controller('signIn',function($rootScope,$scope,$http,$location){
                 if (res.status == 200) {
                     console.log(textStatus);
                     console.log("Success ");
-                    console.log(res);
-
-                    sessionStorage.setItem('userData', JSON.stringify(res.data));
-                    $scope.err = '';
-                    var geT = JSON.parse(sessionStorage.getItem('userData'));
+                   // console.log(res);
+                    sessionStorage.setItem('userData', JSON.stringify(res.data.data));
                     $scope.go('/dashBoard');
                     if (!$scope.$$phase) $scope.$apply();
-                    console.log("Sign IN... Session Storage Checking");
-                    console.log(geT);
+
                 } else {
                     $scope.err = res.data.msg;
                     //console.log(textStatus)

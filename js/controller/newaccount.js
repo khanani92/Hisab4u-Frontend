@@ -22,8 +22,8 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
         $scope.accountData.userID = JSON.parse(sessionStorage.getItem('userData'))
         //var currentDate = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+" "+date.getFullYear()+'/'+(date.getMonth()+1)+'/'+date.getDate();
 
-        console.log("New Account session check, ID is : ");
-        console.log($scope.accountData.userID);
+      //  console.log("New Account session check, ID is : ");
+       // console.log($scope.accountData.userID);
 
         var data = {accountData: $scope.accountData};
 
@@ -38,7 +38,6 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
             }).error(
             function(){ console.log("Error");}
         )//Error
-        console.log(data.accountData.createdDate);
     }
 }else{
     $location.path('/')
