@@ -28,7 +28,9 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
             data: data,
             method:"POST"
         }).success(function(res,textStatus){
-                console.log(res);
+                //console.log(res);
+            $location.path('/dashBoard')
+            if(!$scope.$$phase) $scope.$apply();
             }).error(
             function(){ console.log("Error");}
         )//Error
