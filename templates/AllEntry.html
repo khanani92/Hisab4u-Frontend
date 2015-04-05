@@ -5,7 +5,7 @@
         </div>
     </div>
 
-    <table class="table myForm" style="margin-top: 15%;">
+    <table class="table myForm" style="margin-top: 15%;" ng-show="all_Entries.length">
         <thead>
             <tr style="color: #000000;font-weight: bolder">
                 <th>S. No</th>
@@ -52,6 +52,6 @@
             </tr>
         </tbody>
     </table>
-
+    <div  ng-hide="all_Entries.length"><h2>Please add Entries</h2></div>
 </div>
 
