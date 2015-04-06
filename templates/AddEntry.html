@@ -2,27 +2,28 @@
     <h2 class="text-primary popField">Add Entry</h2>
     <div class="popField">
         <label>AMOUNT :</label>
-        <input type="text" autofocus="true" style="margin-left: 6%"/>
+        <input type="text" autofocus="true" style="margin-left: 6%" ng-model="entryData.amount">
     </div>
     <div class="popField">
         <label>PURPOSE :</label>
-        <input type="text" style="margin-left: 4%"/>
+        <input type="text" style="margin-left: 4%" ng-model="entryData.purpose"/>
     </div>
     <div class="popField">
         <label>TO/FROM :</label>
-        <input type="text" style="margin-left: 5%"/>
+        <input type="text" style="margin-left: 5%" ng-model="entryData.toFrom"/>
     </div>
     <div class="popField">
         <label>DATE :</label>
-        <input type="text" style="margin-left: 12%"/>
+        <input type="date" style="margin-left: 12%" ng-model="entryData.date" />
     </div>
     <div class="popField">
         <label>FORM :</label>
                 <span style="margin-left: 12%">
-                    <input type="radio" name="amount"/> ATM
-                    <input type="radio" name="amount"/> Cheque
-                    <input type="radio" name="amount"/> Cash
+                    <input type="radio" name="amount" ng-model="entryData.form" value="atm"/> ATM
+                    <input type="radio" name="amount" ng-model="entryData.form" value="cheq" /> Cheque
+                    <input type="radio" name="amount" ng-model="entryData.form" value="cash"/> Cash
                 </span>
     </div>
-    <button class="pop btn btn-primary" style="width: 100%" ng-click="close()">Done</button>
+    <button class="pop btn btn-primary" style="width: 100%" ng-click="addEntry()">Done</button>
+    <button class="pop btn btn-primary" style="width: 100%" ng-click="close()">Close</button>
 </div>
