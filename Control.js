@@ -3,13 +3,13 @@ var AccMgt = angular.module('AccMgt',['ngRoute','ngDialog']);
     AccMgt.config(['$routeProvider', function($routeProvider){
         $routeProvider
             .when('/', {
-            templateUrl: 'templates/counter.html',
-            controller:'counter'
-        })
-            .when('/welcome', {
+            templateUrl: 'templates/welcome.html',
+            controller:'welcome'
+            })
+            /*.when('/welcome', {
                 templateUrl: 'templates/Welcome.html',
                 controller:'welcome'
-            })
+            })*/
             .when('/signUp', {
                 templateUrl:'templates/SignUp.html',
                 controller: 'signUp'

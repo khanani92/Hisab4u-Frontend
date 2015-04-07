@@ -18,8 +18,9 @@
 .getStarted{
     border: 2px solid #ffffff;
     font-size: 1.3em;
-    color: #ffffff;
+    color: #00000;
     padding: 1.2%;
+    margin-top: 1%;
 }
 .myForm{
     padding: 2%;
