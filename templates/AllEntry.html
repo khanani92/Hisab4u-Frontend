@@ -24,8 +24,8 @@
                 <td>{{entry.toFrom}}</td>
                 <td>{{entry.form}}</td>
                 <td>
-                    <span><span ng-click="editEntry(entry._id)" style="cursor: pointer; color: blue">Edit</span></span> |
-                    <span>Delete</span>
+                    <span><span ng-click="editEntry(entry._id)" style="cursor: pointer;">Edit</span></span> |
+                    <span style="cursor: pointer;" ng-click="deleteEntry(entry._id)">Delete</span>
                 </td>
             </tr>
         </tbody>

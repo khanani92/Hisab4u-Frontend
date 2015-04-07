@@ -67,6 +67,22 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
               validateAndAction('update')
         }
 
+        $scope.deleteEntry = function(entryID){
+            $http({
+                url: "http://localhost:3000/entry/delete",
+                data: {entryID: entryID},
+                method: "POST"
+            }).success(function (res, textStatus) {
+                console.log("Success ");
+                $scope.updateEntries()
+            }).error(
+                function () {
+                    $scope.updateEntries()
+                    console.log("Error");
+                }
+            )//Error
+        }
+
         var validateAndAction = function(event){
             if(event == 'new'){
                 var date = new Date();
