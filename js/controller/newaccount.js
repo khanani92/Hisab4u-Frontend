@@ -8,7 +8,10 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
         createdDate: ''
     };
 
-
+$scope.close = function(){
+    $location.path('/dashBoard')
+    if(!$scope.$$phase) $scope.$apply();
+}
 
     $scope.Add_Call  = function(){
         var date = new Date();
