@@ -25,6 +25,7 @@ AccMgt.controller('signIn',function($rootScope,$scope,$http,$location){
                     console.log("Success ");
                    // console.log(res);
                     sessionStorage.setItem('userData', JSON.stringify(res.data.data));
+                    $rootScope.logToggle = false;
                     $scope.go('/dashBoard');
                     if (!$scope.$$phase) $scope.$apply();
 

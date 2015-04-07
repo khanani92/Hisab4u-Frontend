@@ -4,12 +4,12 @@ AccMgt.controller('navController',function($rootScope,$scope,$location){
     $scope.signOut = function(){
     //    $scope.showToggle = !e;
         sessionStorage.removeItem('userData')
-        $scope.logToggle = true;
+        $rootScope.logToggle = true;
     }
     if(userData && (Object.keys(userData).length > 0)){
-        $scope.logToggle = false;
+        $rootScope.logToggle = false;
     }else{
-        $scope.logToggle = true;
+        $rootScope.logToggle = true;
     }
 
 
