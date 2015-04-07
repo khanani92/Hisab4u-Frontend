@@ -17,10 +17,11 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
                 res.forEach(function(entry){
                   if(entry.transactionType == 'Credit'){
                       $scope.totalCredit += parseInt(entry.amount);
+                      $scope.currentAmount += parseInt(entry.amount);
                   }else{
                       $scope.totalDebit += parseInt(entry.amount);
                   }
-                    $scope.currentAmount += parseInt(entry.amount);
+
                 })
 
 
