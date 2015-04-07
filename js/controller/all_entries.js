@@ -155,6 +155,11 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
 
         }
 
+        $scope.goBack = function(){
+            $location.path('/dashBoard')
+            if(!$scope.$$phase) $scope.$apply();
+        }
+
     }else{
         $location.path('/')
         if(!$scope.$$phase) $scope.$apply();
