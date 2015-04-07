@@ -19,12 +19,12 @@
         <tbody>
             <tr ng-repeat="entry in all_Entries">
                 <td>{{$index+1}}</td>
-                <td>{{entry.updateDate[1]}} - {{entry.updateDate[2]}} - {{entry.updateDate[3]}}</td>
+                <td>{{entry.entryDate}}</td>
                 <td>{{entry.amount}}</td>
                 <td>{{entry.toFrom}}</td>
                 <td>{{entry.form}}</td>
                 <td>
-                    <span><span ng-click="editEntry()" style="cursor: pointer; color: blue">Edit</span></span> |
+                    <span><span ng-click="editEntry(entry._id)" style="cursor: pointer; color: blue">Edit</span></span> |
                     <span>Delete</span>
                 </td>
             </tr>

@@ -5,7 +5,7 @@ AccMgt.controller('summeryPage',function($rootScope,$scope,$http,$location){
     if(userData && (Object.keys(userData).length > 0)){
     $http({
             url:"http://localhost:3000/account/getUserAccounts",
-            data: userData._id,  //{email: data.email, pass: data.pass},//$scope.userData,
+            data: {userID:userData._id},  //{email: data.email, pass: data.pass},//$scope.userData,
             method:"POST"
         }).success(function(res,textStatus){
             console.log("Success ");

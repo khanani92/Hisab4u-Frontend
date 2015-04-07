@@ -14,14 +14,14 @@
     </div>
     <div class="popField">
         <label>DATE :</label>
-        <input type="date" style="margin-left: 12%" ng-model="entryData.date" />
+        <input type="date" style="margin-left: 12%" ng-model="entryData.entryDate" />
     </div>
     <div class="popField">
         <label>FORM :</label>
                 <span style="margin-left: 12%">
-                    <input type="radio" name="amount" ng-model="entryData.form" value="atm"/> ATM
-                    <input type="radio" name="amount" ng-model="entryData.form" value="cheq" /> Cheque
-                    <input type="radio" name="amount" ng-model="entryData.form" value="cash"/> Cash
+                    <input type="radio" name="amount" ng-model="entryData.form" value="ATM"/> ATM
+                    <input type="radio" name="amount" ng-model="entryData.form" value="Cheque" /> Cheque
+                    <input type="radio" name="amount" ng-model="entryData.form" value="Cash"/> Cash
                 </span>
     </div>
     <button class="pop btn btn-primary" style="width: 100%" ng-click="addEntry()">Done</button>

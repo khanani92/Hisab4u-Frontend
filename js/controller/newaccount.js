@@ -19,7 +19,7 @@ AccMgt.controller('newAccount',function($rootScope,$scope,$http,$location){
    var time= date.getHours()+'-'+date.getMinutes()
         $scope.accountData.createdDate = [time,day,month,year];
 
-        $scope.accountData.userID = JSON.parse(sessionStorage.getItem('userData'))
+        $scope.accountData.userID = userData._id
         //var currentDate = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+" "+date.getFullYear()+'/'+(date.getMonth()+1)+'/'+date.getDate();
 
       //  console.log("New Account session check, ID is : ");
