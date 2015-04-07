@@ -3,14 +3,28 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
     if(userData && (Object.keys(userData).length > 0)){
         var Url = $location.$$path;
         var accountID = Url.substr(12,Url.length);
-        console.log(accountID)
+
         $scope.updateEntries = function() {
+           $scope.totalDebit =0;
+           $scope.totalCredit = 0
+           $scope.currentAmount = 0
             $http({
                 url: "http://localhost:3000/entry/allAccountEntries",
                 data: {accountID: accountID},  //{email: data.email, pass: data.pass},//$scope.userData,
                 method: "POST"
             }).success(function (res, textStatus) {
                 console.log("Success ");
+                res.forEach(function(entry){
+                  if(entry.transactionType == 'Credit'){
+                      $scope.totalCredit += parseInt(entry.amount);
+                  }else{
+                      $scope.totalDebit += parseInt(entry.amount);
+                  }
+                    $scope.currentAmount += parseInt(entry.amount);
+                })
+
+
+                $scope.currentAmount -= $scope.totalDebit;
                 $scope.all_Entries = res;
             }).error(
                 function () {
@@ -97,10 +111,12 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
 
 
             if(($scope.entryData.amount)&&(isNaN($scope.entryData.amount) == false)&&($scope.entryData.amount.length > 0)){
-                if(($scope.entryData.purpose)&&(($scope.entryData.purpose.length > 3)&&($scope.entryData.purpose.length < 100))){
-                    if(($scope.entryData.toFrom)&&(($scope.entryData.toFrom.length > 3)&&($scope.entryData.toFrom.length < 20))){
+                if(($scope.entryData.purpose)&&(($scope.entryData.purpose.length > 2)&&($scope.entryData.purpose.length < 100))){
+                    if(($scope.entryData.toFrom)&&(($scope.entryData.toFrom.length > 2)&&($scope.entryData.toFrom.length < 20))){
                         if(($scope.entryData.entryDate)&&(($scope.entryData.entryDate.length > 0))){
                             if(($scope.entryData.form)&&(($scope.entryData.form.length > 0))){
+                                if(($scope.entryData.transactionType)&&(($scope.entryData.transactionType.length > 0))){
+
                                 $scope.entryData.userID =userData._id
                                 $scope.entryData.accountID = accountID
                                 $http({
@@ -118,7 +134,9 @@ AccMgt.controller('allEntries',function($rootScope,$scope,$location, ngDialog,$h
                                 }).error(
                                     function(){ console.log("Error");}
                                 )//Error
-
+                                }else{
+                                    console.log('check amount Property')
+                                }
                             }else{
                                 console.log('check amount Form')
                             }

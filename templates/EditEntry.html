@@ -25,6 +25,15 @@
                 </span>
     </div>
 
+    <div class="popField">
+        <label> Transaction Type :</label>
+                <span style="margin-left: 12%">
+                    <input type="radio" name="transactionType" ng-model="entryData.transactionType" value="Debit"/> Debit
+                    <input type="radio" name="transactionType" ng-model="entryData.transactionType" value="Credit" /> Credit
+
+                </span>
+    </div>
+
     <button class="pop btn btn-primary" style="width: 100%" ng-click="updateEntry()">Update</button>
     <button class="pop btn btn-primary" style="width: 100%" ng-click="close()">Close</button>
 </div>
