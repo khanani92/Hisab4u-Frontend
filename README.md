@@ -1,6 +1,7 @@
 # Hisab4u-Frontend
 
-Concept of this App is to enable user to maintain this accounts at one place. Which can help him to track his expenditure records. 
+Concept of this App is to enable user to maintain there all accounts at one place. Which can help him to track there expenditure records.
+
 
 This app is Developed using Node.js, Angular.js, MongoDb, Bootsrtap.
 
